@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wanderly Travel Agency</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="index.html">Wanderly</a>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+            <a class="btn btn-primary" href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section class="features container">
+    <h2 class="section-title">What our travelers say</h2>
+
+    <div class="grid-cols-3">
+        <blockquote class="testimonial feature">
+            <p>"Amazing service! Everything went smoothly and the itinerary was perfect."</p>
+            <cite>— Aisha K.</cite>
+        </blockquote>
+
+        <blockquote class="testimonial feature">
+            <p>"Great value and friendly guides. Highly recommended."</p>
+            <cite>— Rohit M.</cite>
+        </blockquote>
+
+        <blockquote class="testimonial feature">
+            <p>"I loved the local experiences recommended by Wanderly."</p>
+            <cite>— Sarah P.</cite>
+        </blockquote>
+    </div>
+</section>
+
+<section id="contact" class="contact container">
+    <h2 class="section-title">Get in touch</h2>
+
+    <div class="contact-grid">
+        <form class="contact-form">
+            <label>Name
+                <input type="text" placeholder="Your name">
+            </label>
+
+            <label>Email
+                <input type="email" placeholder="you@example.com">
+            </label>
+
+            <label>Message
+                <textarea rows="4" placeholder="Tell us what you need..."></textarea>
+            </label>
+
+            <button class="btn btn-primary">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <h3>Office</h3>
+            <p>123 Travel Lane, Mumbai, India</p>
+            <p>Phone: +91 98765 43210</p>
+            <p>Email: hello@wanderly.example</p>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p>&copy; <span id="year"></span> Wanderly Travel Agency. All rights reserved.</p>
+        <div class="social">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destinations – Wanderly Travel Agency</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="brand" href="index.html">Wanderly</a>
+        <nav class="main-nav">
+            <a href="index.html">Home</a>
+            <a href="destination.html">Destinations</a>
+            <a class="btn btn-primary" href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section class="container">
+    <h1>Destinations</h1>
+    <p class="lead">Browse our curated list of places and travel packages. Click a card to learn more.</p>
+</section>
+
+<section class="dest-list container">
+    <div class="grid-cols-3">
+
+        <!-- Bali -->
+        <article class="dest-card">
+            <img src="https://images.unsplash.com/photo-1508057198894-247b23fe5ade?q=80&w=800&auto=format&fit=crop" alt="bali" />
+            <div class="dest-body">
+                <h3>Bali, Indonesia</h3>
+                <p>7 days • Beaches, temples & rice terraces</p>
+                <div class="card-actions">
+                    <a class="btn" href="#">Details</a>
+                    <a class="btn btn-primary" href="#">Book</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Swiss Alps -->
+        <article class="dest-card">
+            <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?q=80&w=800&auto=format&fit=crop" alt="swiss" />
+            <div class="dest-body">
+                <h3>Swiss Alps</h3>
+                <p>6 days • Skiing, lakes & mountain villages</p>
+                <div class="card-actions">
+                    <a class="btn" href="#">Details</a>
+                    <a class="btn btn-primary" href="#">Book</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- NYC -->
+        <article class="dest-card">
+            <img src="https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=800&auto=format&fit=crop" alt="nyc" />
+            <div class="dest-body">
+                <h3>New York City, USA</h3>
+                <p>5 days • City tours, shows & dining</p>
+                <div class="card-actions">
+                    <a class="btn" href="#">Details</a>
+                    <a class="btn btn-primary" href="#">Book</a>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section id="contact" class="container contact-small">
+    <h2>Ask a travel expert</h2>
+
+    <form class="contact-form small">
+        <label>Name
+            <input type="text" placeholder="Your name">
+        </label>
+        <label>Email
+            <input type="email" placeholder="you@example.com">
+        </label>
+        <label>Destination
+            <textarea rows="2" placeholder="Which destination are you interested in?"></textarea>
+        </label>
+        <button class="btn btn-primary">Send</button>
+    </form>
+</section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p>&copy; <span id="year2"></span> Wanderly Travel Agency. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('year2').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
