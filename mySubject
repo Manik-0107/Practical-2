@@ -1,0 +1,445 @@
+Practical-1
+…or create a new repository on the command line
+	echo "# portfolio" >> README.md
+	git init
+	git add README.md
+	git commit -m "first commit"
+	git branch -M main
+	git remote add origin https://github.com/Manik-0107/portfolio.git
+	git push -u origin main
+
+…or push an existing repository from the command line
+	git remote add origin https://github.com/Manik-0107/portfolio.git
+	git branch -M main
+	git push -u origin main
+-------------------------------
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Welcome!</h2>
+        <p>Hello! I am Manik Mondal, a passionate learner and aspiring developer. This is my simple personal portfolio.</p>
+        <a href="about.html" class="button">Know More About Me</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Manik Mondal</p>
+    </footer>
+</body>
+</html>
+---------------------------
+About.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>About Me</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Who I Am</h2>
+        <p>I am Manik Mondal, a student and a web development enthusiast. I love learning new technologies and building simple projects.</p>
+
+        <h2>Contact Me</h2>
+        <p>Email: manik@example.com</p>
+        <p>Phone: +91 1234567890</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Manik Mondal</p>
+    </footer>
+</body>
+</html>
+
+Style.css
+-------------------------------
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styling */
+body {
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header styling */
+header {
+    background-color: #0077cc;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Section styling */
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #005fa3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+    margin-top: 40px;
+}
+-------------------------------
+Pipeline Script
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Checkout Code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Manik-0107/portfolio.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "No build required (static HTML site)"
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Example: Create a folder to simulate deployment
+                bat 'echo Deploying static site...'
+                bat 'mkdir C:\\DeployTest'
+                bat 'xcopy /E /I index.html C:\\DeployTest\\'
+            }
+        }
+    }
+}
+-----------------------------------------------------------------------------------
+Practical-2
+-----------------------------------------------------------------------------------
+Docker:
+Create Docker file command: New-Item -Path . -Name "Dockerfile" -ItemType "file"
+-----------------------
+Docker file code:
+# Use lightweight Nginx image to serve HTML
+FROM nginx:alpine
+
+# Remove default nginx website
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy your project files to Nginx folder
+COPY index.html destinations.html style.css /usr/share/nginx/html/
+
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx server
+CMD ["nginx", "-g", "daemon off;"]
+-----------------------------------------------
+ Run this command on terminal: docker build -t devops-mini-project:1.0 .
+ Build command: docker run -d -p 8085:80 --name practical-2-container lab-2:1.0
+-----------------------------------------
+Index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Agency</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Explore Travel Agency</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Welcome to Explore Travel Agency</h2>
+        <p>Your adventure begins here! We help you find the best travel destinations around the world.</p>
+        <a href="destinations.html" class="button">See Destinations</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Explore Travel Agency</p>
+    </footer>
+</body>
+</html>
+
+---------------------------------------------------
+Destination.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Our Destinations</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="destinations.html">Destinations</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Popular Destinations</h2>
+        <p>Discover beautiful places you can visit with us:</p>
+        <ul style="list-style: none; padding: 0;">
+            <li>🏖️ Maldives</li>
+            <li>🏔️ Switzerland</li>
+            <li>🌆 New York City</li>
+            <li>🏜️ Dubai</li>
+            <li>🌸 Japan</li>
+        </ul>
+        <a href="index.html" class="button">Back to Home</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Explore Travel Agency</p>
+    </footer>
+</body>
+</html>
+------------------------------------------------
+Style.css
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+/* Header */
+header {
+    background-color: #0099cc;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Sections */
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0099cc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #007799;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #333;
+    color: white;
+    margin-top: 40px;
+}
+-----------------------------------------------------------------------
+Practical-3
+-----------------------------------------------------------------------
+App.java
+package com.example;
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+    }
+}
+----------------------------------
+AppTest.java
+package com.example;
+import static org.junit.Assert.assertTrue;
+import org.junit.Test;
+public class AppTest {
+    @Test
+    public void shouldAnswerWithTrue() {
+        assertTrue(true);
+    }
+}
+-----------------------------------------
+Pom.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>demo</name>
+    <url>http://www.example.com</url>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- JUnit for testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.13.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Compiler plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <source>17</source>
+                    <target>17</target>
+                </configuration>
+            </plugin>
+
+            <!-- Jar plugin to set main class -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.example.App</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
+-------------------------------------------
+
+Step:
+	Open VS Code → Command Palette (Ctrl + Shift + P) 
+	Search for “Maven: Create Maven Project”.
+	Select archetype: maven-archetype-quickstart.
+	1.4
+	GroupId: com.example
+	ArtifactId: demo
+-------------------------------
+Terminal Command:
+	mvn clean
+	mvn validate
+	mvn compile
+	mvn test
+	mvn package
+	mvn install
+	cd target
+	java -jar demo-1.0-SNAPSHOT.jar
+
+
+
+
+
